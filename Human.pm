@@ -3,7 +3,7 @@ package Number::Bytes::Human;
 use strict;
 use warnings;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 require Exporter;
 our @ISA = qw(Exporter);
@@ -352,8 +352,6 @@ sub _parse_bytes {
 
   if( !defined $mult ) {
     carp "Could not parse human readable byte value '$human'";
-use Data::Dumper;
-print STDERR Dumper( %suffix_block );
     return undef;
   }
 
@@ -714,17 +712,6 @@ It is alright to import C<format_bytes> and C<parse_bytes>, but nothing is expor
 
   "negative numbers are not allowed" (??)
 
-=head1 TO DO
-
-A function C<parse_bytes>
-
-  parse_bytes($str, $options)
-
-which transforms '1k' to 1000, '1K' to 1024, '1MB' to 1E6,
-'1M' to 1024*1024, etc. (like gnu du).
-
-  $str =~ /^\s*(\d*\.?\d*)\s*(\S+)/ # $num $suffix
-
 =head1 SEE ALSO
 
 F<lib/human.c> and F<lib/human.h> in GNU coreutils.
@@ -733,17 +720,17 @@ The C<_convert()> solution by COG in Filesys::DiskUsage.
 
 =head1 BUGS
 
-Please report bugs via CPAN RT L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Number-Bytes-Human>
-or L<mailto://bug-Number-Bytes-Human@rt.cpan.org>. I will not be able to close the bug
-as BestPractical ignore my claims that I cannot log in, but I will answer anyway.
+Please report bugs via Github L<https://github.com/aferreira/cpan-Number-Bytes-Human/issues>.
 
 =head1 AUTHOR
 
-Adriano R. Ferreira, E<lt>ferreira@cpan.orgE<gt>
+Adriano R. Ferreira, E<lt>ferreiraE<64>cpan.orgE<gt>
+
+Dagobert Michelsen, E<lt>dagobertE<64>cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2005-2007 by Adriano R. Ferreira
+Copyright (C) 2005-2017 by Adriano R. Ferreira
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
